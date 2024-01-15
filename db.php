@@ -12,4 +12,9 @@ public function __construct($db = "auto_winkel", $user ="root", $pwd="", $host="
         }
  
     }
+    public function updateUser(string $merk, string $model, int $jaar, string $kenteken, int $beschikbaarheid, int $id) {
+  $stmt = $this->pdo->prepare("UPDATE auto SET Merk = ?, Model = ?, Jaar = ?, Kenteken = ?, Beschikbaarheid = ? WHERE AutoID = ?");
+  $stmt->execute([$merk, $model, $jaar, $kenteken, $beschikbaarheid, $id]);
+}
+
 }
